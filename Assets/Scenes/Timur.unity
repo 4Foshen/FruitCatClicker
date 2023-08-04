@@ -238,7 +238,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 777378916274130879, guid: eeb931f2966e06c4b8317e3d7abed06d, type: 3}
   maxSpawnCount: 10
-  spawnDelay: 5
+  spawnDelay: 0.1
+  leftX: -1
+  rightX: 1
+  upY: 0
+  downY: 1
 --- !u!4 &1967735571
 Transform:
   m_ObjectHideFlags: 0

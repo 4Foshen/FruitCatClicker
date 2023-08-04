@@ -5,8 +5,15 @@ using UnityEngine;
 public class SpawnCats : MonoBehaviour
 {
         [SerializeField] private GameObject objectPrefab; 
-        [SerializeField] private int maxSpawnCount = 100;   
-        [SerializeField] private float spawnDelay = 5f;  
+        [SerializeField] private int maxSpawnCount;   
+        [SerializeField] private float spawnDelay = 5f;
+
+        [Header("Coordinates")]    
+        [SerializeField] private float leftX = -10f;
+        [SerializeField] private float rightX = 10f;
+        [SerializeField] private float upY = 1f;
+        [SerializeField] private float downY = 5f;
+
 
         private int currentSpawnCount = 0; 
         private float lastSpawnTime = 0f;
@@ -25,8 +32,8 @@ public class SpawnCats : MonoBehaviour
 
         private void SpawnObject()
         {
-            randomX = Random.Range(-10f, 10f);
-            randomY = Random.Range(1f, 5f);    
+            randomX = Random.Range(leftX, rightX);
+            randomY = Random.Range(upY, downY);    
 
             Vector3 spawnPosition = new Vector3(randomX, randomY, 0f);
 
