@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -9176793940305495026}
   - component: {fileID: 6047236114021280946}
   m_Layer: 0
-  m_Name: ObjectForSpawn
+  m_Name: RegularCat
   m_TagString: Cats
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.38499996
+  m_Radius: 0.2681821
 --- !u!114 &6047236114021280946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,8 +87,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3306615681948738697}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalScale: {x: 0.22518909, y: 0.22518909, z: 0.22518909}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7758371987754409476}
@@ -135,7 +135,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c0bf661070a05b342a8b69fca7942d5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e203ef1555964b4e9ca82f57ef3cdac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
