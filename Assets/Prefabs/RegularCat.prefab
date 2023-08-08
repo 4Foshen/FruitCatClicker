@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7758371987754409476}
   - component: {fileID: -9176793940305495026}
-  - component: {fileID: 6047236114021280946}
   m_Layer: 0
   m_Name: RegularCat
   m_TagString: Cats
@@ -50,18 +49,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2681821
---- !u!114 &6047236114021280946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777378916274130879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62db0f163b5b553449f8e9ea0ba9da4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3306615681948738697
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +121,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5e203ef1555964b4e9ca82f57ef3cdac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

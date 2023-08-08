@@ -6,12 +6,23 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    [Header("Texts")]
     public Text score;
+    public Text diamondText;
+    public Text currentIncome;
+    public Text currentCoinPC;
+    public Text currentRespawn;
+
+
+    [Header("Parametrs")]
     public float spawnDelay;
     public int maxSpawnCount;
     public int coinsPerClick;
-    public int coinsCount;
     public int incomeAmount;
+
+    [Header("Currency")]
+    public int coinsCount;
+    public int diamondsCount;
 
     [Header("Skins")]
     public Sprite[] _catSkins;
@@ -53,5 +64,9 @@ public class PlayerStats : MonoBehaviour
         {
             score.text = coinsCount.ToString();
         }
+
+        diamondText.text = diamondsCount.ToString();
+        currentCoinPC.text = "Ќынешнее количество: " + coinsPerClick.ToString();
+        currentRespawn.text = "Ќынешн€€ скорость: " + spawnDelay.ToString();
     }
 }

@@ -56,7 +56,7 @@ public class SpawnCats : MonoBehaviour
 
             Vector3 spawnPosition = new Vector3(randomX, randomY, 0f);
 
-            if (spawnCount % 10 == 0)
+            if (spawnCount != 0 && spawnCount % 10 == 0)
             {
                 Instantiate(megaCat, spawnPosition, Quaternion.identity, transform);
             }

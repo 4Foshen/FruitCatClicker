@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
@@ -13,7 +14,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Text _coinUpgradeText;
     [SerializeField] private Text _respawnUpgradeText;
     
-    //system prokachki incom
 
     [Header("Income Shop")]
     [SerializeField] private GameObject[] _catWorkers;
@@ -48,7 +48,7 @@ public class ShopManager : MonoBehaviour
         {
             _stats.coinsCount -= _respawnUpgradePrice;
             _stats.spawnDelay -= 0.1f;
-            _respawnUpgradePrice *= 2;
+            _respawnUpgradePrice *= 3;
 
             PlayerPrefs.SetFloat("SpawnDelay", _stats.spawnDelay);
             PlayerPrefs.SetInt("RespawnUpgradePrice", _respawnUpgradePrice);
@@ -58,8 +58,21 @@ public class ShopManager : MonoBehaviour
     }
     private void UpdateText()
     {
-        _coinUpgradeText.text = "+Монет за клик: " + _coinUpgradePrice.ToString();
-        _respawnUpgradeText.text = "+Скорость респавна: " + _respawnUpgradePrice.ToString();
+        if (_coinUpgradePrice >= 1000)
+        {
+            float displayCoin = _coinUpgradePrice / 1000;
+            float afterCoin = (_coinUpgradePrice % 1000) / 100;
+            _coinUpgradeText.text = $"{displayCoin},{afterCoin}K";
+        }
+        else _coinUpgradeText.text = _coinUpgradePrice.ToString();
+
+        if(_respawnUpgradePrice >= 1000)
+        {
+            float displayRespawn = _respawnUpgradePrice / 1000;
+            float afterRespawn = (_respawnUpgradePrice % 1000) / 100;
+            _respawnUpgradeText.text = $"{displayRespawn},{afterRespawn}K";
+        }
+        else _respawnUpgradeText.text = _respawnUpgradePrice.ToString();
     }
 
     private void LoadData()
