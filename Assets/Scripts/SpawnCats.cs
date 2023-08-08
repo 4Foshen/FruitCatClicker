@@ -6,7 +6,9 @@ public class SpawnCats : MonoBehaviour
 {
     private PlayerStats stats;
 
-    [SerializeField] private GameObject objectPrefab;
+    [SerializeField] private GameObject regularCat; 
+    [SerializeField] private GameObject megaCat;
+    [SerializeField] private GameObject diamondCat;
 
     [Header("Coordinates")]
     [SerializeField] private float leftX = -10f;
@@ -15,15 +17,17 @@ public class SpawnCats : MonoBehaviour
     [SerializeField] private float downY = 5f;
 
     private float lastSpawnTime = 0f;
+    private int spawnCount = 0;
 
     private float randomX;
     private float randomY;
 
+    private float lastDiamondCatSpawnTime = 0f;
+    private float diamondCatSpawnInterval = 30f;
+
     private void Awake()
     {
         stats = FindObjectOfType<PlayerStats>();
-
-
 
         SpawnObject();
     }
@@ -34,6 +38,12 @@ public class SpawnCats : MonoBehaviour
         {
             SpawnObject();
             lastSpawnTime = Time.time;
+        }
+
+        if (Time.time - lastDiamondCatSpawnTime >= diamondCatSpawnInterval)
+        {
+            SpawnDiamondCat();
+            lastDiamondCatSpawnTime = Time.time;
         }
     }
 
@@ -46,7 +56,29 @@ public class SpawnCats : MonoBehaviour
 
             Vector3 spawnPosition = new Vector3(randomX, randomY, 0f);
 
-            Instantiate(objectPrefab, spawnPosition, Quaternion.identity, transform);
+            if (spawnCount % 10 == 0)
+            {
+                Instantiate(megaCat, spawnPosition, Quaternion.identity, transform);
+            }
+            else
+            {
+                Instantiate(regularCat, spawnPosition, Quaternion.identity, transform);
+            }
+
+            spawnCount++;
+        }
+    }
+
+    private void SpawnDiamondCat()
+    {
+        if (transform.childCount < stats.maxSpawnCount)
+        {
+            randomX = Random.Range(leftX, rightX);
+            randomY = Random.Range(upY, downY);
+
+            Vector3 spawnPosition = new Vector3(randomX, randomY, 0f);
+
+            Instantiate(diamondCat, spawnPosition, Quaternion.identity, transform);
         }
     }
 
@@ -55,4 +87,11 @@ public class SpawnCats : MonoBehaviour
         gameObject.SetActive(false);
     }
 }
+
+
+
+
+
+
+
 
