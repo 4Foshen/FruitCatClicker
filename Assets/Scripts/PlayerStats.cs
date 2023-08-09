@@ -17,6 +17,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Parametrs")]
     public float spawnDelay;
     public int maxSpawnCount;
+    public int diamondPerClick;
     public int coinsPerClick;
     public int incomeAmount;
 
@@ -44,6 +45,11 @@ public class PlayerStats : MonoBehaviour
         else
             coinsCount = 0;
 
+        if (PlayerPrefs.HasKey("Diamond"))
+            diamondsCount = PlayerPrefs.GetInt("Diamond");
+        else
+            diamondsCount = 0;
+
         maxSpawnCount = 100;
         incomeAmount = 0;
     }
@@ -65,8 +71,19 @@ public class PlayerStats : MonoBehaviour
             score.text = coinsCount.ToString();
         }
 
-        diamondText.text = diamondsCount.ToString();
-        currentCoinPC.text = "Ќынешнее количество: " + coinsPerClick.ToString();
-        currentRespawn.text = "Ќынешн€€ скорость: " + spawnDelay.ToString();
+        if (diamondsCount >= 1000)
+        {
+            float displayCoin = diamondsCount / 1000;
+            float afterCoin = (diamondsCount % 1000) / 100;
+            diamondText.text = $"{displayCoin},{afterCoin}K";
+        }
+        else
+        {
+            diamondText.text = diamondsCount.ToString();
+        }
+
+        //diamondText.text = diamondsCount.ToString();
+        //currentCoinPC.text = "Ќынешнее количество: " + coinsPerClick.ToString();
+        //currentRespawn.text = "Ќынешн€€ скорость: " + spawnDelay.ToString();
     }
 }

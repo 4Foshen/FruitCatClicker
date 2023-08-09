@@ -7,6 +7,7 @@ TagManager:
   - Destroy
   - Cats
   - MegaCats
+  - DiamondCats
   layers:
   - Default
   - TransparentFX

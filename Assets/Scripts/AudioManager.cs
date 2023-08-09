@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
@@ -26,38 +27,45 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic("Music");
+        PlayMusic(0);
     }
 
 
-    public void PlayMusic(string name)
+    public void PlayMusic(int index)
     {
-        Sound s = Array.Find(musicSounds, x => x.name == name);
+        if (index < 0 || index >= musicSounds.Length)
+        {
+            Debug.Log("Invalid index for music");
+            return;
+        }
 
-        if (s == null)
-        {
-            Debug.Log("Sound not found");
-        }
-        else
-        {
-            musicSource.clip = s.clip;
-            musicSource.Play();
-        }
+        musicSource.clip = musicSounds[index].clip;
+        musicSource.Play();
     }
 
-    public void PlaySFX(string name)
+    public void PlaySFX(int index)
     {
-        Sound s = Array.Find(sfxSounds, x => x.name == name);
+        if (index < 0 || index >= sfxSounds.Length)
+        {
+            Debug.Log("Invalid index for sfx");
+            return;
+        }
 
-        if (s == null)
+        sfxSource.clip = sfxSounds[index].clip;
+        sfxSource.Play();
+    }
+
+    public void PlayRandomSFX(int index)
+    {
+        if (index < 0 || index >= sfxSounds.Length)
         {
-            Debug.Log("Sound not found");
+            Debug.Log("Invalid index for sfx");
+            return;
         }
-        else
-        {
-            sfxSource.clip = s.clip;
-            sfxSource.Play();
-        }
+
+        Sound randomSound = sfxSounds[index];
+        sfxSource.clip = randomSound.clip;
+        sfxSource.Play();
     }
 
     public void ToggleMusic()

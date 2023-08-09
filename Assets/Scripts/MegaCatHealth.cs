@@ -7,6 +7,7 @@ using UnityEngine;
 public class MegaCatHealth : MonoBehaviour
 {
     private PlayerStats stats;
+    private AudioManager audioManager;
     private int maxHealth = 5;
     private int currentHealth;
     private int damage = 1;
@@ -14,6 +15,7 @@ public class MegaCatHealth : MonoBehaviour
     private void Start()
     {
         stats = FindObjectOfType<PlayerStats>();
+        audioManager = FindObjectOfType<AudioManager>();
         
         currentHealth = maxHealth;
     }
@@ -40,6 +42,7 @@ public class MegaCatHealth : MonoBehaviour
 
         if (hitCollider != null && hitCollider.gameObject.CompareTag("MegaCats"))
         {
+            PlayRandomSFX();
             TakeDamage(damage);
         }
     }
@@ -63,5 +66,9 @@ public class MegaCatHealth : MonoBehaviour
         stats.coinsCount += stats.coinsPerClick * 2;
         PlayerPrefs.SetInt("Coins", stats.coinsCount);
     }
-
+    private void PlayRandomSFX()
+    {
+        int randomIndex = Random.Range(0, audioManager.sfxSounds.Length);
+        audioManager.PlayRandomSFX(randomIndex);
+    }
 }

@@ -168,11 +168,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 520662729}
+  diamondText: {fileID: 1178327710}
+  currentIncome: {fileID: 0}
+  currentCoinPC: {fileID: 0}
+  currentRespawn: {fileID: 0}
   spawnDelay: 1
   maxSpawnCount: 0
+  diamondPerClick: 0
   coinsPerClick: 0
-  coinsCount: 0
   incomeAmount: 0
+  coinsCount: 0
+  diamondsCount: 0
   _catSkins: []
 --- !u!1 &444700906
 GameObject:
@@ -267,6 +273,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 520662728}
+  - {fileID: 1178327709}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -287,7 +294,7 @@ GameObject:
   - component: {fileID: 520662730}
   - component: {fileID: 520662729}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -467,6 +474,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1178327708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1178327709}
+  - component: {fileID: 1178327711}
+  - component: {fileID: 1178327710}
+  m_Layer: 5
+  m_Name: Diamond
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1178327709
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178327708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 444700910}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -202}
+  m_SizeDelta: {x: 160, y: 124.98}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1178327710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178327708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 40
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1178327711
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178327708}
+  m_CullTransparentMesh: 1
 --- !u!1 &1184123366
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +693,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3363259092418278643, guid: 7406de549b36ca24085c99b4052549c6, type: 3}
+      propertyPath: megaCat
+      value: 
+      objectReference: {fileID: 777378916274130879, guid: 1bb8311169e3b974c955ba93e832065d, type: 3}
+    - target: {fileID: 3363259092418278643, guid: 7406de549b36ca24085c99b4052549c6, type: 3}
+      propertyPath: diamondCat
+      value: 
+      objectReference: {fileID: 777378916274130879, guid: 97eca856a7a4a4e49a640f95ac68e792, type: 3}
+    - target: {fileID: 3363259092418278643, guid: 7406de549b36ca24085c99b4052549c6, type: 3}
+      propertyPath: regularCat
+      value: 
+      objectReference: {fileID: 777378916274130879, guid: eeb931f2966e06c4b8317e3d7abed06d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7406de549b36ca24085c99b4052549c6, type: 3}
 --- !u!1001 &4446648951932205486
@@ -618,6 +717,70 @@ PrefabInstance:
     - target: {fileID: 4446648952958203105, guid: d548eff187f615446a4bbb484c948579, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: sfxSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: musicSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: sfxSounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 63010cb803324ee4fa083416e3f9ff25, type: 3}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: sfxSounds.Array.data[0].name
+      value: Meow1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: sfxSounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 41fecf79fab35664a84906bee3698b9b, type: 3}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: sfxSounds.Array.data[1].name
+      value: Meow2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: sfxSounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c27a730046cf3aa4bb137b13d15ce5ca, type: 3}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: sfxSounds.Array.data[2].name
+      value: Meow3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: sfxSounds.Array.data[1].index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: sfxSounds.Array.data[2].index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: musicSounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 94e754621ba61cd40b38e770c8f44a83, type: 3}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: musicSounds.Array.data[0].name
+      value: Meow3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: musicSounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c27a730046cf3aa4bb137b13d15ce5ca, type: 3}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: musicSounds.Array.data[1].name
+      value: Meow3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: musicSounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c27a730046cf3aa4bb137b13d15ce5ca, type: 3}
+    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: musicSounds.Array.data[2].name
+      value: Meow3
       objectReference: {fileID: 0}
     - target: {fileID: 4446648952958203135, guid: d548eff187f615446a4bbb484c948579, type: 3}
       propertyPath: m_RootOrder
@@ -662,6 +825,18 @@ PrefabInstance:
     - target: {fileID: 4446648952958203135, guid: d548eff187f615446a4bbb484c948579, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648953120364410, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648953157836964, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446648953157836964, guid: d548eff187f615446a4bbb484c948579, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d548eff187f615446a4bbb484c948579, type: 3}

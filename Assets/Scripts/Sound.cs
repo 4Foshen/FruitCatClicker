@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Sound
 {
-    public string name;
+    public int index;
     public AudioClip clip;
 }

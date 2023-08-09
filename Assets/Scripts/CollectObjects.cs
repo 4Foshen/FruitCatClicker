@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class CollectObjects : MonoBehaviour
 {
+
     private PlayerStats stats;
+    private AudioManager audioManager;
+
     private void Awake()
     {
         stats = FindObjectOfType<PlayerStats>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
@@ -34,6 +39,14 @@ public class CollectObjects : MonoBehaviour
                 Destroy(hit.collider.gameObject);
                //PlayerPrefs.SetInt("Coins", stats.coinsCount += stats.coinsPerClick);
                 EarnCoin();
+                PlayRandomSFX();
+            }
+
+            if (hit.collider != null && hit.collider.CompareTag("DiamondCats"))
+            {
+                Destroy(hit.collider.gameObject);
+                EarnDiamond();
+                PlayRandomSFX();
             }
         }
     }
@@ -42,5 +55,18 @@ public class CollectObjects : MonoBehaviour
         stats.coinsCount += stats.coinsPerClick;
         PlayerPrefs.SetInt("Coins", stats.coinsCount);
     }
+
+    private void EarnDiamond()
+    {
+        stats.diamondsCount += stats.diamondPerClick = Random.Range(3, 6);
+        PlayerPrefs.SetInt("Diamond", stats.diamondsCount);
+    }
+
+    private void PlayRandomSFX()
+    {
+        int randomIndex = Random.Range(0, audioManager.sfxSounds.Length);
+        audioManager.PlayRandomSFX(randomIndex);
+    }
+
 } 
 
