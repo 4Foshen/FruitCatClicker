@@ -41,6 +41,7 @@ public class IncomeShop : MonoBehaviour
             _minerObject.SetActive(true);
 
             PlayerPrefs.SetInt("MinerPrice", _minerPrice);
+            PlayerPrefs.SetInt("Income", _playerStats.incomeAmount);
         }
     }
     public void BuyProg()
@@ -54,6 +55,7 @@ public class IncomeShop : MonoBehaviour
             _progObject.SetActive(true);
 
             PlayerPrefs.SetInt("ProgPrice", _progPrice);
+            PlayerPrefs.SetInt("Income", _playerStats.incomeAmount);
         }
     }
     public void BuyFloppa()
@@ -67,6 +69,7 @@ public class IncomeShop : MonoBehaviour
             _floppaObject.SetActive(true);
 
             PlayerPrefs.SetInt("FloppaPrice", _floppaPrice);
+            PlayerPrefs.SetInt("Income", _playerStats.incomeAmount);
         }
     }
     private void LoadData()
