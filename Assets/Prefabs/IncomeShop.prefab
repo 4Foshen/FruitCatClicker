@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4886535752074203327
+--- !u!1 &6806457532726967100
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,55 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4886535752074203321}
-  - component: {fileID: 4886535752074203326}
+  - component: {fileID: 6806457532726967103}
+  - component: {fileID: 6806457532726967102}
   m_Layer: 0
-  m_Name: Shop
+  m_Name: IncomeShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4886535752074203321
+--- !u!4 &6806457532726967103
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4886535752074203327}
+  m_GameObject: {fileID: 6806457532726967100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 175.98782, y: 59.307198, z: 5.258625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4886535752074203326
+--- !u!114 &6806457532726967102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4886535752074203327}
+  m_GameObject: {fileID: 6806457532726967100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0238bab8d57dcfd4ea833d828966e056, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b55bcb82b410054da0a6de07b8b25f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinUpgradePrice: 5
-  _respawnUpgradePrice: 20
-  _coinUpgradeText: {fileID: 0}
-  _respawnUpgradeText: {fileID: 0}
-  _buyButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _selectButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _minerPrice: 10
+  _progPrice: 100
+  _floppaPrice: 1000
+  _minerPriceText: {fileID: 0}
+  _progPriceText: {fileID: 0}
+  _floppaPriceText: {fileID: 0}
+  _minerObject: {fileID: 0}
+  _progObject: {fileID: 0}
+  _floppaObject: {fileID: 0}

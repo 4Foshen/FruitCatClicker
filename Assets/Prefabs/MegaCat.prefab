@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7758371987754409476}
   - component: {fileID: -9176793940305495026}
   - component: {fileID: -844000455800248677}
+  - component: {fileID: 3041056781048529633}
   m_Layer: 0
   m_Name: MegaCat
   m_TagString: MegaCats
@@ -60,6 +61,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 017c90a9b3105f2439d1d8d085163a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3041056781048529633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777378916274130879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c086180ce04a8048a2254f2c609da72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3306615681948738697
@@ -134,9 +147,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5e203ef1555964b4e9ca82f57ef3cdac, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9664817, b: 0.28773582, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

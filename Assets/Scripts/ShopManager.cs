@@ -13,10 +13,11 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private int _respawnUpgradePrice;
     [SerializeField] private Text _coinUpgradeText;
     [SerializeField] private Text _respawnUpgradeText;
-    
 
-    [Header("Income Shop")]
-    [SerializeField] private GameObject[] _catWorkers;
+
+    [Header("Skin Shop")]
+    [SerializeField] private GameObject[] _buyButtons;
+    [SerializeField] private GameObject[] _selectButtons;
 
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class ShopManager : MonoBehaviour
         if(_stats.coinsCount >= _coinUpgradePrice)
         {
             _stats.coinsCount -= _coinUpgradePrice;
-            _stats.coinsPerClick *= 2;
+            _stats.coinsPerClick += 1;
             _coinUpgradePrice *= 2;
 
             PlayerPrefs.SetInt("CoinsPerClick", _stats.coinsPerClick);
@@ -44,7 +45,7 @@ public class ShopManager : MonoBehaviour
     }
     public void RespawnUpgrade()
     {
-        if(_stats.coinsCount >= _respawnUpgradePrice)
+        if(_stats.coinsCount >= _respawnUpgradePrice && _stats.spawnDelay > 0.5f)
         {
             _stats.coinsCount -= _respawnUpgradePrice;
             _stats.spawnDelay -= 0.1f;
@@ -74,17 +75,84 @@ public class ShopManager : MonoBehaviour
         }
         else _respawnUpgradeText.text = _respawnUpgradePrice.ToString();
     }
+    public void BuyOrange(int price)
+    {
+        if(_stats.diamondsCount >= price)
+        {
+            _stats.diamondsCount -= price;
+            _buyButtons[1].SetActive(false);
+            _selectButtons[1].SetActive(true);
+
+            PlayerPrefs.SetInt("OrangeSkin", 1);
+        }
+    }
+    public void BuyBanana(int price)
+    {
+        if (_stats.diamondsCount >= price)
+        {
+            _stats.diamondsCount -= price;
+            _buyButtons[2].SetActive(false);
+            _selectButtons[2].SetActive(true);
+
+            PlayerPrefs.SetInt("BananaSkin", 1);
+        }
+    }
+    public void BuyOnePiece(int price)
+    {
+        if (_stats.diamondsCount >= price)
+        {
+            _stats.diamondsCount -= price;
+            _buyButtons[3].SetActive(false);
+            _selectButtons[3].SetActive(true);
+
+            PlayerPrefs.SetInt("OnePieceSkin", 1);
+        }
+    }
+    public void BuyBaursak(int price)
+    {
+        if (_stats.diamondsCount >= price)
+        {
+            _stats.diamondsCount -= price;
+            _buyButtons[4].SetActive(false);
+            _selectButtons[4].SetActive(true);
+
+            PlayerPrefs.SetInt("BaursakSkin", 1);
+        }
+    }
+
+    public void SelectSkin(int skinIndex)
+    {
+        _stats.currentSkin = skinIndex;
+        PlayerPrefs.SetInt("CurrentSkin", skinIndex);
+    }
 
     private void LoadData()
     {
         if (PlayerPrefs.HasKey("CoinUpgradePrice"))
             _coinUpgradePrice = PlayerPrefs.GetInt("CoinUpgradePrice");
-        else
-            _coinUpgradePrice = 5;
 
         if (PlayerPrefs.HasKey("RespawnUpgradePrice"))
             _respawnUpgradePrice = PlayerPrefs.GetInt("RespawnUpgradePrice");
-        else
-            _respawnUpgradePrice = 20;
+
+        if (PlayerPrefs.HasKey("OrangeSkin"))
+        {
+            _selectButtons[1].SetActive(true);
+            _buyButtons[1].SetActive(false);
+        }
+        if (PlayerPrefs.HasKey("BananaSkin"))
+        {
+            _selectButtons[2].SetActive(true);
+            _buyButtons[2].SetActive(false);
+        }
+        if (PlayerPrefs.HasKey("OnePieceSkin"))
+        {
+            _selectButtons[3].SetActive(true);
+            _buyButtons[3].SetActive(false);
+        }
+        if (PlayerPrefs.HasKey("BaursakSkin"))
+        {
+            _selectButtons[4].SetActive(true);
+            _buyButtons[4].SetActive(false);
+        }
     }
 }

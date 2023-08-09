@@ -23,7 +23,8 @@ public class SpawnCats : MonoBehaviour
     private float randomY;
 
     private float lastDiamondCatSpawnTime = 0f;
-    private float diamondCatSpawnInterval = 30f;
+    [Header("DiamondCat")]
+    [SerializeField] private float diamondCatSpawnInterval = 300f;
 
     private void Awake()
     {

@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee5b2c4d1da6a744bcafe110413c67f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 777378916274130879, guid: eeb931f2966e06c4b8317e3d7abed06d, type: 3}
-  leftX: -5.66
-  rightX: 5.66
-  upY: -2
-  downY: 2.5
+  regularCat: {fileID: 777378916274130879, guid: eeb931f2966e06c4b8317e3d7abed06d, type: 3}
+  megaCat: {fileID: 777378916274130879, guid: 1bb8311169e3b974c955ba93e832065d, type: 3}
+  diamondCat: {fileID: 777378916274130879, guid: 97eca856a7a4a4e49a640f95ac68e792, type: 3}
+  leftX: -5.86
+  rightX: 5.86
+  upY: -2.1
+  downY: 2.33

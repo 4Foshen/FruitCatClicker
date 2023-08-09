@@ -179,7 +179,8 @@ MonoBehaviour:
   incomeAmount: 0
   coinsCount: 0
   diamondsCount: 0
-  _catSkins: []
+  catSkins: []
+  currentSkin: 0
 --- !u!1 &444700906
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,70 +719,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: sfxSounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: musicSounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: sfxSounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 63010cb803324ee4fa083416e3f9ff25, type: 3}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: sfxSounds.Array.data[0].name
-      value: Meow1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: sfxSounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 41fecf79fab35664a84906bee3698b9b, type: 3}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: sfxSounds.Array.data[1].name
-      value: Meow2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: sfxSounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: c27a730046cf3aa4bb137b13d15ce5ca, type: 3}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: sfxSounds.Array.data[2].name
-      value: Meow3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: sfxSounds.Array.data[1].index
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: sfxSounds.Array.data[2].index
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: musicSounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 94e754621ba61cd40b38e770c8f44a83, type: 3}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: musicSounds.Array.data[0].name
-      value: Meow3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: musicSounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: c27a730046cf3aa4bb137b13d15ce5ca, type: 3}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: musicSounds.Array.data[1].name
-      value: Meow3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: musicSounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: c27a730046cf3aa4bb137b13d15ce5ca, type: 3}
-    - target: {fileID: 4446648952958203134, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: musicSounds.Array.data[2].name
-      value: Meow3
-      objectReference: {fileID: 0}
     - target: {fileID: 4446648952958203135, guid: d548eff187f615446a4bbb484c948579, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -825,18 +762,6 @@ PrefabInstance:
     - target: {fileID: 4446648952958203135, guid: d548eff187f615446a4bbb484c948579, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648953120364410, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648953157836964, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446648953157836964, guid: d548eff187f615446a4bbb484c948579, type: 3}
-      propertyPath: m_audioClip
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d548eff187f615446a4bbb484c948579, type: 3}

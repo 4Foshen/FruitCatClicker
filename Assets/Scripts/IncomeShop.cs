@@ -12,10 +12,15 @@ public class IncomeShop : MonoBehaviour
     [SerializeField] private Text _minerPriceText;
     [SerializeField] private Text _progPriceText;
     [SerializeField] private Text _floppaPriceText;
+    [Header("Objects")]
+    [SerializeField] private GameObject _minerObject;
+    [SerializeField] private GameObject _progObject;
+    [SerializeField] private GameObject _floppaObject;
+    
 
     private void Awake()
     {
-        _playerStats= GetComponent<PlayerStats>();
+        _playerStats = FindObjectOfType<PlayerStats>();
 
         LoadData();
     }
@@ -25,7 +30,7 @@ public class IncomeShop : MonoBehaviour
         UpdateText(_progPrice, _progPriceText);
         UpdateText(_floppaPrice, _floppaPriceText);
     }
-    public void BuyMiner(GameObject minerObject)
+    public void BuyMiner()
     {
         if(_playerStats.coinsCount >= _minerPrice)
         {
@@ -33,10 +38,12 @@ public class IncomeShop : MonoBehaviour
             _playerStats.incomeAmount += 1;
             _minerPrice *= 2;
 
+            _minerObject.SetActive(true);
+
             PlayerPrefs.SetInt("MinerPrice", _minerPrice);
         }
     }
-    public void BuyProg(GameObject minerObject)
+    public void BuyProg()
     {
         if (_playerStats.coinsCount >= _progPrice)
         {
@@ -44,10 +51,12 @@ public class IncomeShop : MonoBehaviour
             _playerStats.incomeAmount += 10;
             _progPrice *= 2;
 
+            _progObject.SetActive(true);
+
             PlayerPrefs.SetInt("ProgPrice", _progPrice);
         }
     }
-    public void BuyFloppa(GameObject minerObject)
+    public void BuyFloppa()
     {
         if (_playerStats.coinsCount >= _floppaPrice)
         {
@@ -55,25 +64,30 @@ public class IncomeShop : MonoBehaviour
             _playerStats.incomeAmount += 100;
             _floppaPrice *= 2;
 
+            _floppaObject.SetActive(true);
+
             PlayerPrefs.SetInt("FloppaPrice", _floppaPrice);
         }
     }
     private void LoadData()
     {
         if (PlayerPrefs.HasKey("MinerPrice"))
+        {
             _minerPrice = PlayerPrefs.GetInt("MinerPrice");
-        else
-            _minerPrice = 10;
+            _minerObject.SetActive(true);
+        }
 
         if (PlayerPrefs.HasKey("ProgPrice"))
+        {
             _progPrice = PlayerPrefs.GetInt("ProgPrice");
-        else
-            _progPrice = 100;
+            _progObject.SetActive(true);
+        }
 
         if (PlayerPrefs.HasKey("FloppaPrice"))
+        {
             _floppaPrice = PlayerPrefs.GetInt("FloppaPrice");
-        else
-            _floppaPrice = 1000;
+            _floppaObject.SetActive(true);
+        }
     }
     private void UpdateText(int number, Text priceText)
     {

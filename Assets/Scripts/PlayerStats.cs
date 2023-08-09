@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Parametrs")]
     public float spawnDelay;
-    public int maxSpawnCount;
+    public int maxSpawnCount = 100;
     public int diamondPerClick;
     public int coinsPerClick;
     public int incomeAmount;
@@ -26,34 +26,13 @@ public class PlayerStats : MonoBehaviour
     public int diamondsCount;
 
     [Header("Skins")]
-    public Sprite[] _catSkins;
+    public Sprite[] catSkins;
+    public int currentSkin = 0;
 
     private void Awake()
     {
-        if (PlayerPrefs.HasKey("CoinsPerClick"))
-            coinsPerClick = PlayerPrefs.GetInt("CoinsPerClick");
-        else
-            coinsPerClick = 1;
-
-        if (PlayerPrefs.HasKey("SpawnDelay"))
-            spawnDelay = PlayerPrefs.GetFloat("SpawnDelay");
-        else
-            spawnDelay = 3f;
-
-        if (PlayerPrefs.HasKey("Coins"))
-            coinsCount = PlayerPrefs.GetInt("Coins");
-        else
-            coinsCount = 0;
-
-        if (PlayerPrefs.HasKey("Diamond"))
-            diamondsCount = PlayerPrefs.GetInt("Diamond");
-        else
-            diamondsCount = 0;
-
-        maxSpawnCount = 100;
-        incomeAmount = 0;
+        LoadData();
     }
-
     private void Update()
     {
         DisplayText();
@@ -71,19 +50,29 @@ public class PlayerStats : MonoBehaviour
             score.text = coinsCount.ToString();
         }
 
-        if (diamondsCount >= 1000)
-        {
-            float displayCoin = diamondsCount / 1000;
-            float afterCoin = (diamondsCount % 1000) / 100;
-            diamondText.text = $"{displayCoin},{afterCoin}K";
-        }
-        else
-        {
-            diamondText.text = diamondsCount.ToString();
-        }
+        diamondText.text = diamondsCount.ToString();
+        currentCoinPC.text = "Ќынешнее количество: " + coinsPerClick.ToString();
+        currentRespawn.text = "Ќынешн€€ скорость: " + spawnDelay.ToString();
+        currentIncome.text = "Ќынешний доход: " + incomeAmount.ToString();
+    } 
+    private void LoadData()
+    {
+        if (PlayerPrefs.HasKey("CoinsPerClick"))
+            coinsPerClick = PlayerPrefs.GetInt("CoinsPerClick");
 
-        //diamondText.text = diamondsCount.ToString();
-        //currentCoinPC.text = "Ќынешнее количество: " + coinsPerClick.ToString();
-        //currentRespawn.text = "Ќынешн€€ скорость: " + spawnDelay.ToString();
+        if (PlayerPrefs.HasKey("SpawnDelay"))
+            spawnDelay = PlayerPrefs.GetFloat("SpawnDelay");
+
+        if (PlayerPrefs.HasKey("Coins"))
+            coinsCount = PlayerPrefs.GetInt("Coins");
+
+        if (PlayerPrefs.HasKey("Diamond"))
+            diamondsCount = PlayerPrefs.GetInt("Diamond");
+
+        if (PlayerPrefs.HasKey("Income"))
+            incomeAmount = PlayerPrefs.GetInt("Income");
+
+        if (PlayerPrefs.HasKey("CurrentSkin"))
+            currentSkin = PlayerPrefs.GetInt("CurrentSkin");
     }
 }
