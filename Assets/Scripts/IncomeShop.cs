@@ -36,7 +36,7 @@ public class IncomeShop : MonoBehaviour
         {
             _playerStats.coinsCount -= _minerPrice;
             _playerStats.incomeAmount += 1;
-            _minerPrice *= 2;
+            _minerPrice *= 3;
 
             _minerObject.SetActive(true);
 
@@ -50,7 +50,7 @@ public class IncomeShop : MonoBehaviour
         {
             _playerStats.coinsCount -= _progPrice;
             _playerStats.incomeAmount += 10;
-            _progPrice *= 2;
+            _progPrice *= 3;
 
             _progObject.SetActive(true);
 
@@ -64,7 +64,7 @@ public class IncomeShop : MonoBehaviour
         {
             _playerStats.coinsCount -= _floppaPrice;
             _playerStats.incomeAmount += 100;
-            _floppaPrice *= 2;
+            _floppaPrice *= 3;
 
             _floppaObject.SetActive(true);
 

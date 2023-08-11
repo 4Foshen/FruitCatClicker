@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MegaCatHealth : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem _particleSystem;
     private PlayerStats stats;
     private AudioManager audioManager;
     private int maxHealth = 5;
@@ -14,6 +15,7 @@ public class MegaCatHealth : MonoBehaviour
 
     private void Start()
     {
+        _particleSystem = FindObjectOfType<ParticleSystem>();
         stats = FindObjectOfType<PlayerStats>();
         audioManager = FindObjectOfType<AudioManager>();
         
@@ -42,6 +44,8 @@ public class MegaCatHealth : MonoBehaviour
 
         if (hitCollider != null && hitCollider.gameObject.CompareTag("MegaCats"))
         {
+            _particleSystem.transform.position = hitCollider.transform.position;
+            _particleSystem.Play();
             PlayRandomSFX();
             TakeDamage(damage);
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CollectObjects : MonoBehaviour
 {
-
+    [SerializeField] private ParticleSystem _particleSystem;
     private PlayerStats stats;
     private AudioManager audioManager;
 
@@ -36,6 +36,8 @@ public class CollectObjects : MonoBehaviour
 
             if (hit.collider != null && hit.collider.CompareTag("Cats"))
             {
+                _particleSystem.transform.position = hit.collider.transform.position;
+                _particleSystem.Play();
                 Destroy(hit.collider.gameObject);
                //PlayerPrefs.SetInt("Coins", stats.coinsCount += stats.coinsPerClick);
                 EarnCoin();
@@ -44,7 +46,9 @@ public class CollectObjects : MonoBehaviour
 
             if (hit.collider != null && hit.collider.CompareTag("DiamondCats"))
             {
+                _particleSystem.transform.position = hit.collider.transform.position;
                 Destroy(hit.collider.gameObject);
+                _particleSystem.Play();
                 EarnDiamond();
                 PlayRandomSFX();
             }
